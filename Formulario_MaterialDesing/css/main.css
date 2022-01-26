@@ -1,0 +1,207 @@
+:root {
+	--primary: hsl(232, 84%, 63%);
+	/* hsl(222, 60%, 60%); */
+	--primary-a: hsla(232, 54%, 41%, 0.1);
+	--light-primary: hsl(207, 89%, 96%);
+	--white: #f2f2f2;
+	--divider: #b6b6b6;
+	--error: hsl(0, 65%, 51%);
+	--error-a: hsla(0, 65%, 51%, 0.1);
+	--btn-submit-hover: hsl(210, 79%, 46%);
+	--border: 2px;
+	--border-radius: 5px;
+	--font-family: 'Roboto';
+}
+
+* {
+	font-family: var(--font-family), sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--white);
+	border-top: 30px solid var(--primary);
+}
+
+.wrap {
+	width: 90%;
+	max-width: 500px;
+	padding: 40px;
+	margin: auto;
+	border-radius: var(--border-radius);
+	box-shadow: 0px 0px 3px hsl(0, 0%, 50%);
+	background-color: #fff;
+}
+
+.form-container {
+	width: 100%;
+	color: var(--white);
+	padding: 50px;
+}
+
+.form {
+	width: 100%;
+	margin: auto;
+}
+
+.input-group {
+	position: relative;
+	margin-bottom: 32px;
+}
+
+.input-group input[type='text'],
+.input-group input[type='email'],
+.input-group input[type='password'] {
+	color: var(--primary);
+	width: 100%;
+	outline: none;
+	padding: 15px;
+	background-color: none;
+	border: none;
+	border-bottom: var(--border) solid var(--light-primary);
+}
+
+.input-group input[type='text']:focus,
+.input-group input[type='email']:focus,
+.input-group input[type='password']:focus,
+.input-group input[type='text']:active,
+.input-group input[type='email']:active,
+.input-group input[type='password']:active {
+	outline: none;
+	border-bottom: var(--border) solid var(--primary);
+}
+
+.input-group input[type='text'].error + label,
+.input-group input[type='email'].error + label,
+.input-group input[type='password'].error + label {
+	color: var(--error);
+}
+
+.input-group input[type='text'].error,
+.input-group input[type='email'].error,
+.input-group input[type='password'].error {
+	border-bottom: var(--border) solid var(--error);
+}
+
+.input-group > label {
+	color: var(--primary);
+}
+
+.label {
+	position: absolute;
+	top: 16px;
+	left: 0;
+	font-size: 1rem;
+	line-height: 1rem;
+	margin-left: 1rem;
+	transition: all 0.3s ease;
+}
+
+.label.active {
+	top: -12px;
+	font-size: 12px;
+	color: var(--divider);
+}
+
+.checkbox label,
+.radio label {
+	position: relative;
+	display: inline-block;
+	padding: 5px 15px 5px 51px;
+	color: var(--primary);
+	cursor: pointer;
+	font-family: 1em;
+	border-radius: 3px;
+	transition: all 0.3s ease;
+}
+
+.checkbox label:hover,
+.radio label:hover {
+	background-color: var(--primary-a);
+}
+
+.checkbox label::before,
+.radio label::before {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 12px;
+	display: inline-block;
+	margin: 0 10px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: var(--border) solid var(--primary);
+}
+
+.checkbox label::before {
+	border-radius: 3px;
+}
+
+.checkbox label.error,
+.radio label.error {
+	color: var(--error);
+}
+
+.checkbox label.error:hover,
+.radio label.error:hover {
+	background-color: var(--error-a);
+}
+
+.checkbox label.error::before,
+.radio label.error::before {
+	border: var(--border) solid var(--error);
+}
+
+.radio input[type='radio'],
+.checkbox input[type='checkbox'] {
+	display: none;
+}
+
+.radio input[type='radio']:checked + label::before,
+.checkbox input[type='checkbox']:checked + label::before {
+	display: none;
+}
+
+.radio input[type='radio']:checked + label,
+.checkbox input[type='checkbox']:checked + label {
+	padding: 5px 15px;
+	background-color: var(--primary);
+	color: var(--white);
+}
+
+.input-container input[type='submit'] {
+	display: inline-block;
+	width: 100%;
+	padding: 15px;
+	border: var(--border) solid var(--white);
+	border-radius: var(--border-radius);
+	background-color: var(--primary);
+	color: var(--white);
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.input-container input[type='submit']:hover {
+	background-color: var(--btn-submit-hover);
+}
+
+@media screen and (max-width: 600px) {
+	body {
+		border-top: 45px solid var(--primary);
+	}
+
+	.form-container {
+		padding: 0;
+		height: calc(100vh - 45px);
+	}
+
+	.wrap {
+		min-width: 100%;
+		min-height: 100%;
+		padding: 30px;
+	}
+}
